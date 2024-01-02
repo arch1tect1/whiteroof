@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>msforhr</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.svg"/>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="only__logo">
+		<div class="container">
+			<div class="outer__header">
+				<a href="#">
+					<img src="img/logo.svg" alt="logo" width="240">
+				</a>
+			</div>
+		</div>
+	</header>
+	<div class="send_cv--form">
+		<div class="container">
+			<div class="outer__send--cv">
+				<div class="cv__top">
+					<div class="head__cv">
+						<h2>Send CV <span class="colored__span">Fast</span> and <span class="colored__span">Conveniently</span></h2>
+						<p>msforhr lets you quickly send, store, collect and organize cv's and our premium plans can do even more.</p>
+					</div>
+					<div class="cv__form">
+						<form action="">
+							<div class="group__input">
+								<p>First Name</p>
+								<input type="text" placeholder="Tamerlan Imanov" id="first_name">
+							</div>
+							<div class="group__input">
+								<p>Email</p>
+								<input type="text" placeholder="Enter Email" id="email">
+							</div>
+							<div class="group__input">
+								<input type="text" placeholder="Please enter folder URL here" id="folder-url-address">
+								<p class="small__info"><span>For example:</span> Coca Cola/Finance Department/Senior Accountan</p>
+							</div>
+							<div class="group__file">
+								<div class="selected__file">
+									<div class="inner__selected">
+										<p>lorem.pdf</p>
+										<a href="#"><img src="img/close.webp" alt="close"></a>
+									</div>
+								</div>
+								<a href="#">Select a file</a>
+								<input type="file" accept=".pdf , .docx , .txt" id="my-file">
+								<p class="small__info"><span>For example:</span> Coca Cola/Finance Department/Senior Accountan</p>
+							</div>
+							<div class="group__submit">
+								<button type="submit">Upload CV</button>
+							</div>
+						</form>
+						<div class="terms__info">
+							<p>By Clicking the button above, you agree to our <a href="#">terms of use</a> and <a href="#">privacy polices</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="cv__mobile">
+					<div class="terms__info">
+						<p>By Clicking the button above, you agree to our <a href="#">terms of use</a> and <a href="#">privacy polices</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form__success">
+		<p>CV has been sent successfully!</p>
+	</div>
+    <div class="form__fail">
+        <p>Upload was not successful!</p>
+    </div>
+	<script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
