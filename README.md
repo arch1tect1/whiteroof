@@ -1,5 +1,5 @@
 # whiteroof
-Whiteroof CV management platform for HR teams.
+Whiteroof(old msforhr) is CV management platform for HR teams.
 
 HR teams can create company folder -> department folder -> copy link of the department folder.
 
