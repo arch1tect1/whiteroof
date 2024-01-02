@@ -1,0 +1,185 @@
+{% block content %}
+    {% load static %}
+    {% csrf_token %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>msforhr</title>
+        <link rel="icon" type="image/x-icon" href="{% static '/img/favicon.svg' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+    <header>
+
+        <div class="overlay__block--wrapper">
+            <div class="container" style="max-width: 1200px;">
+                <div class="outer__overlay">
+                    <div class="top__part">
+                        <a href="#"  style=""><img src="{% static '/img/logo.svg' %}" alt="logo" style="width: 200px;"></a>
+                        <div class="lang__picker" style="">
+                            <ul>
+                                <li class="active__lang"><a href="#" data-lang="en">EN</a></li>
+                                <li class="spacer">|</li>
+                                <li><a href="#" data-lang="az">AZ</a></li>
+                                <li class="spacer">|</li>
+                                <li><a href="#" data-lang="ru">RU</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="center__part" style="">
+                        <h2  class="translate__element"  data-en="whiteroof is a cloud-based management system for hr teams who can collect,
+                        organize and store resumes on the platform with a focus on fast data access."  data-az="whiteroof, sürətli məlumat əldə etməyə diqqət yetirməklə CV-ləri toplaya, təşkil edə və platformada saxlaya bilən işçi qrupları üçün bulud əsaslı idarəetmə sistemidir." data-ru="whiteroof — это облачная система управления для HR-команд, которые могут собирать, систематизировать и хранить резюме на платформе с упором на быстрый доступ к данным.">whiteroof is a cloud-based management system for hr teams who can collect,
+                            organize and store resumes on the platform with a focus on fast data access.</h2>
+                        <div class="button__picker">
+                            <a class="translate__element" href="http://cv.msforhr.com/" data-en="I'm an Employee" data-az="Mən İşçiyəm" data-ru="Я работник">I'm an Employee</a>
+                            <a class="translate__element hr__button" href="#" data-en="I'm a HR" data-az="Mən İnsan Resurslarıyam" data-ru="Я HR" id="button__hr">I'm a HR</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="outer__header">
+                <a href="#">
+                    <img src="{% static '/img/logo.svg' %}" alt="logo" style="width: 130px;">
+                </a>
+                <ul>
+                    <li><a href="#">About </a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="menu__button">
+                    <a href="#">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="sign__wrapper">
+        <div class="container" style="width: 1200px;">
+            <div class="outer__sign">
+                <div class="sign__box">
+                    <div class="sign__info">
+                        <h2><span class="colored__span">One</span> Program for <span class="colored__span">Hiring Process</span> Optimization</h2>
+                        <p>Try <span class="colored__span">msforhr</span> for free for 14 days Managing CV data has never been easier, faster, or more fluid</p>
+                        <div class="sign__media">
+                            <img src="{% static '/img/signimage.svg' %}" alt="signimage">
+                        </div>
+                    </div>
+                    <div class="sign__form">
+                        <div class="sign__inner">
+                            <div class="switcher__sign">
+                                {# <span class="status" style="left:90px;"></span> #}
+                                <span class="status" style="left:0px;"></span>
+                                <ul>
+                                    <li class="active__switcher"><a href="#" data-form="form__signin">Sign In</a></li>
+                                    {# <li><a href="#" data-form="form__signup">Sign Up</a></li> #}
+                                </ul>
+                            </div>
+                            <div class="form__grid">
+                                <div class="elem__form form__signin">
+
+                                    {% if form.errors %}
+                                        <p style="color: red;">Your username and password didn't match. Please try again.</p>
+                                    {% endif %}
+
+                                    <form method="post" action="{% url 'login' %}">
+                                        {% csrf_token %}
+
+                                        <div class="group__input">
+                                            <p>{{ form.username.label_tag }}</p>
+                                            {{ form.username }}
+                                        </div>
+
+                                        <div class="group__input password__input">
+                                            <p>{{ form.password.label_tag }}</p>
+                                            {{ form.password }}
+                                            <a href="#"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12.8333 6C12.8333 6.94543 12.0111 7.71429 11 7.71429C9.98892 7.71429 9.16667 6.94543 9.16667 6C9.16667 5.05457 9.98892 4.28571 11 4.28571C12.0111 4.28571 12.8333 5.05457 12.8333 6ZM22 5.61514C22 5.61514 18.1023 12 11.0138 12C4.43208 12 0 5.61514 0 5.61514C0 5.61514 4.0755 0 11.0138 0C18.0666 0 22 5.61514 22 5.61514ZM14.6667 6C14.6667 4.10743 13.0249 2.57143 11 2.57143C8.976 2.57143 7.33333 4.10743 7.33333 6C7.33333 7.89343 8.976 9.42857 11 9.42857C13.0249 9.42857 14.6667 7.89343 14.6667 6Z" fill="#373737"/>
+                                            </svg></a>
+                                        </div>
+
+                                        <div class="group__forgot">
+                                            <a href="{% url 'password_reset' %}">Forgot password?</a>
+                                        </div>
+
+                                        <div class="group__submit">
+                                            <button type="submit" value="login">Let's Go!</button>
+                                            <input type="hidden" name="next" value="{{ next }}" />
+                                        </div>
+                                        <div class="group__google">
+                                            <a href="#"><img src="{% static '/img/google.svg' %}" alt="google"> Sign In with Google</a>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="elem__form form__signup" style="display:none;">
+                                    <form action="">
+                                        <div class="double__group">
+                                            <div class="group__input">
+                                                <p>First Name</p>
+                                                <input type="text">
+                                            </div>
+                                            <div class="group__input">
+                                                <p>Last Name</p>
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                        <div class="group__input">
+                                            <p>Username</p>
+                                            <input type="text">
+                                        </div>
+                                        <div class="group__input password__input">
+                                            <p>Password</p>
+                                            <input type="password">
+                                            <a href="#"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12.8333 6C12.8333 6.94543 12.0111 7.71429 11 7.71429C9.98892 7.71429 9.16667 6.94543 9.16667 6C9.16667 5.05457 9.98892 4.28571 11 4.28571C12.0111 4.28571 12.8333 5.05457 12.8333 6ZM22 5.61514C22 5.61514 18.1023 12 11.0138 12C4.43208 12 0 5.61514 0 5.61514C0 5.61514 4.0755 0 11.0138 0C18.0666 0 22 5.61514 22 5.61514ZM14.6667 6C14.6667 4.10743 13.0249 2.57143 11 2.57143C8.976 2.57143 7.33333 4.10743 7.33333 6C7.33333 7.89343 8.976 9.42857 11 9.42857C13.0249 9.42857 14.6667 7.89343 14.6667 6Z" fill="#373737"/>
+                                            </svg></a>
+                                        </div>
+                                        <div class="group__input password__input">
+                                            <p>Confirm Password</p>
+                                            <input type="password">
+                                            <a href="#"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12.8333 6C12.8333 6.94543 12.0111 7.71429 11 7.71429C9.98892 7.71429 9.16667 6.94543 9.16667 6C9.16667 5.05457 9.98892 4.28571 11 4.28571C12.0111 4.28571 12.8333 5.05457 12.8333 6ZM22 5.61514C22 5.61514 18.1023 12 11.0138 12C4.43208 12 0 5.61514 0 5.61514C0 5.61514 4.0755 0 11.0138 0C18.0666 0 22 5.61514 22 5.61514ZM14.6667 6C14.6667 4.10743 13.0249 2.57143 11 2.57143C8.976 2.57143 7.33333 4.10743 7.33333 6C7.33333 7.89343 8.976 9.42857 11 9.42857C13.0249 9.42857 14.6667 7.89343 14.6667 6Z" fill="#373737"/>
+                                            </svg></a>
+                                            <p style="color: red; display: none;">Passwords do not match</p>
+                                        </div>
+                                        <div class="group__submit">
+                                            <div class="button_submit" id="button__sign-up">Let's Go!</div>
+                                        </div>
+                                        <div class="group__google">
+                                            <a href="#"><img src="{% static '/img/google.svg' %}" alt="google"> Sign Up with Google</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sign__agree">
+                            <p>By Clicking the button above, you agree to our <a href="#">terms of use</a> and <a href="#">privacy polices</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="sign__small--agree">
+                    <div class="sign__agree">
+                        <p>By Clicking the button above, you agree to our <a href="#">terms of use</a> and <a href="#">privacy polices</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script
+            src="https://code.jquery.com/jquery-3.6.1.js"
+            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+            crossorigin="anonymous"></script>
+    <script src="/static/js/script.js"></script>
+    </body>
+    </html>
+{% endblock content %}

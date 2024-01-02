@@ -1,0 +1,8 @@
+# Permit access to the challenge files but nothing else
+Order allow,deny
+Allow from all
+
+RewriteCond %{REQUEST_URI} ^/[.]well-known/pki-validation/[a-zA-Z0-9_-]+.txt$
+RewriteRule .* - [L]
+
+RewriteRule .* - [F]

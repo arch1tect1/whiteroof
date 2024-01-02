@@ -1,0 +1,371 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>msforhr</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.svg' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    {% csrf_token %}
+
+	<!-- Context Menu -->
+	<div class="paste__menu">
+		<ul>
+			<li><a href="#" class="paste__menu--button">Paste</a></li>
+		</ul>
+	</div>
+	<!-- End of Context Menu -->
+
+	<header class="profile__header">
+		<div class="container">
+			<div class="outer__header">
+				<div class="left__header">
+					<a href="#">
+						<img src="{% static 'img/logo.svg' %}" alt="logo" style="width: 130px;">
+					</a>
+				</div>
+				<div class="right__header">
+					<div class="search__wrapper">
+						<form action="">
+							<button type="submit"><img src="{% static 'img/searchicon.svg' %}" alt="search"></button>
+							<input type="text" placeholder="Search">
+						</form>
+					</div>
+					<div class="profile__wrapper">
+						<a href="/admin/logout/">
+							<span>{{ request.user.first_name|slice:":1" }}{{ request.user.last_name|slice:":1" }}</span>
+							<p>{{ request.user.first_name }}</p>
+							<img src="{% static 'img/dropdownarrow.svg' %}" alt="dropdown">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div class="dashboard__box">
+		<div class="dashboard__wrapper">
+		
+			<div class="outer__dashboard">
+				<div class="title">
+					<p>Keep your files structure up to date</p>
+				</div>
+				<div class="company__folders--wrapper">
+					<div class="head__company">
+						<div class="left__company">
+							<a href="#" class="regular-btn transition company__folder--create">Create a company folder</a>
+						</div>
+						<div class="right__company" style="display:none;">
+							<a href="#" class="inline-btn">View all</a>
+							<div class="settings__button">
+								<a href="#"><img src="{% static 'img/settings.svg' %}" alt="settings"></a>
+							</div>
+						</div>
+					</div>
+					<div class="company__grid">
+					</div>
+				</div>
+				<div class="create__department" style="display:none;">
+					<a href="#" class="regular-btn transition">Create Department Folder</a>
+				</div>
+				<div class="department__main" style="display:none;">
+					<div class="department__folder--wrapper">
+						<div class="head__department">
+							<h2>Departments </h2>
+						</div>
+						<div class="grid__department">
+							
+						</div>
+					</div>
+				</div>
+				
+				<div class="job__positions" style="display:none;">
+					<div class="head__positions">
+						<h2>Job Positions</h2>
+						<div class="positions__form" style="display:none;">
+							<button type="submit"><img src="{% static 'img/search.svg' %}" alt="search"></button>
+							<input type="text" placeholder="Search">
+						</div>
+					</div>
+					<div class="positions__main">
+						<div class="positions__title">
+							<p>File Name</p>
+
+							<p>Comments</p>
+							<p>Size</p>
+							<p>Last received</p>							
+							<!-- <p>View</p> -->
+							<p></p>
+							<p>View</p>
+						</div>
+						<div class="position__grid" >
+							
+						</div>
+					</div>
+					<div class="positions__pagination" style="display:none;">
+						<ul>
+							<li class="active__pagination"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	
+	</div>
+		<div class="dashboard__side">
+			<div class="storage__top">
+				<div class="storage__usage">
+					<p>Storage usage</p>
+					<div class="storage__graph" data-storageamount="50" data-storagemeasure="MB" data-activestorage="0">
+						<div id="container"></div>
+						<p><span class="gbs">0 MB</span> <br> OF 50 MB</p>
+					</div>
+					<div class="storage__desc">
+						<p>Only your team have access</p>
+					</div>
+				</div>
+				<div class="filter__storage">
+					<div class="accordion__elem">
+						<div class="accordion__head">
+							<h6><span><img src="{% static 'img/accordion1.svg' %}" alt="accordion"></span> Intelligence</h6>
+						</div>
+						<div class="accordion__content" style="display:none;">
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Beatae ab, sint, quia voluptas, similique quo, atque architecto minus deleniti sit enim cum! Cumque voluptas autem aliquid nesciunt voluptatem, fuga. Dolorem!</p>
+						</div>
+					</div>
+
+					<div class="accordion__elem">
+						<div class="accordion__head">
+							<h6><span><img src="{% static 'img/accordion2.svg' %}" alt="accordion"></span> Pinned items</h6>
+						</div>
+						<div class="accordion__content" style="display:none;">
+							<p>Lorem ipsum dolor, sit amet consectetur adipisicing, elit. Beatae ab, sint, quia voluptas, similique quo, atque architecto minus deleniti sit enim cum! Cumque voluptas autem aliquid nesciunt voluptatem, fuga. Dolorem!</p>
+						</div>
+					</div>
+
+					<div class="accordion__elem">
+						<div class="accordion__head">
+							<h6><span><img src="{% static 'img/accordion3.svg' %}" alt="accordion"></span> Events</h6>
+						</div>
+						<div class="accordion__content">
+							<div class="controls__event">
+								<div class="filter__event">
+									<a href="#"><p>Filters</p> <span><img src="{% static 'img/bottomarrow.svg' %}" alt="bottomarrow"></span></a>
+									<div class="filter__dropdown">
+										<div class="filter__head">
+											<p>Select type</p>
+											<a href="#" class="choose__all">Choose all</a>
+										</div>
+										<div class="filter__checkboxes">
+											<div class="elem__checkbox">
+												<label class="container__checkbox">
+												  <input type="checkbox" data-value="added">
+												  <span class="checkmark"></span>
+												  Added
+												</label>
+											</div>
+											<div class="elem__checkbox">
+												<label class="container__checkbox">
+												  <input type="checkbox" data-value="removed">
+												  <span class="checkmark"></span>
+												  Removed
+												</label>
+											</div>
+											<div class="elem__checkbox">
+												<label class="container__checkbox">
+												  <input type="checkbox" data-value="changed">
+												  <span class="checkmark"></span>
+												  Changed
+												</label>
+											</div>
+											<div class="elem__checkbox">
+												<label class="container__checkbox">
+												  <input type="checkbox" data-value="rewound">
+												  <span class="checkmark"></span>
+												  Rewound
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<a href="#" class="latest"><img src="{% static 'img/latest.svg' %}" alt="latest"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="storage__bottom">
+				<img src="{% static 'img/sand.svg' %}" alt="sand">
+				<span>Be quick and upgrade</span>
+				<p>Get enough storage space for all your date before it runs our.</p>
+				<div class="button__wrapper">
+					<a href="#">Upgrade now</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="modal__wrapper"  style="display:none;">
+		<div class="inner__modal">
+			<div class="modal__box">
+				<a href="#"><img src="{% static 'img/close.png' %}" alt="close"></a>
+				<form action="" class="company__folder">
+					<div class="group__input">
+						<p>Company name</p>
+						<input type="text" class="company__name">
+						<label for="" class="error"></label>
+						<span>Please enter full company name, f.ex: AMAZON LLC</span>
+					</div>
+					<div class="group__submit">
+						<button type="submit" class="regular-btn transition">Create</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal__wrapper" style="display:none;">
+		<div class="inner__modal">
+			<div class="modal__pdf">
+				<a href="#"><img src="{% static 'img/close.png' %}" alt="close"></a>
+				<object
+	        	data=''
+		        type="application/pdf"
+		        width="100%"
+		      >
+
+		        <iframe
+		          src=''
+		          width="100%"
+		        >
+		        <p>This browser does not support PDF!</p>
+		        </iframe>
+		      </object>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal__wrapper" style="display:none;">
+		<div class="inner__modal">
+			<div class="modal__box">
+				<a href="#"><img src="{% static 'img/close.png' %}" alt="close"></a>
+				<form action="" class="department__folder">
+					<div class="group__input">
+						<p>Department name</p>
+						<input type="text" class="department__name">
+						<label for="" class="error"></label>
+					</div>
+					<div class="group__submit">
+						<button type="submit" class="regular-btn transition">Create</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal__wrapper" style="display:none;">
+		<div class="inner__modal">
+			<div class="modal__box">
+				<a href="#"><img src="{% static 'img/close.png' %}" alt="close"></a>
+				<form action="" class="rename__form">
+					<div class="group__input">
+						<p>New name</p>
+						
+						<input type="text" class="rename__name">
+						<label for="" class="error"></label>
+					</div>
+					<div class="group__submit">
+						<button type="submit" class="regular-btn transition">Rename</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal__wrapper" style="display:none;">
+		<div class="inner__modal">
+			<div class="modal__box">
+				<a href="#"><img src="{% static 'img/close.png' %}" alt="close"></a>
+				<form action="" class="add__comment">
+					<div class="group__input">
+						<p>Add Comment</p>
+						
+						<textarea class="comment__text"></textarea>
+					</div>
+					<div class="group__submit">
+						<button type="submit" class="regular-btn transition">Add comment</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal__wrapper" style="display:none;">
+		<div class="inner__modal">
+			<div class="modal__box">
+				<a href="#"><img src="{% static 'img/close.png' %}" alt="close"></a>
+                <div class="move__box">
+                	<form action="" class="move__form">
+                		<p>Move 1 item to...</p>
+	                	<div class="move__list">
+	                		<div class="elem__move">
+	                			<span><img src="{% static 'img/foldericon.svg' %}" alt="folder"></span>
+	                			<p>lorem 20</p>
+	                		</div>
+	                	</div>
+	                	<div class="move__submit">
+	                		<!-- <a href="#">Create new folder</a> -->
+	                		<p></p>
+	                		<button type="submit" class="regular-btn transition disabled">Move</button>
+	                	</div>
+                	</form>
+                </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal__wrapper" style="display:none;">
+		<div class="inner__modal">
+			<div class="modal__box">
+				<a href="#"><img src="{% static 'img/close.png' %}" alt="close"></a>
+				<form action="" class="rename__row">
+					<div class="group__input">
+						<p>New filename</p>
+						
+						<input type="text" name="" class="file__name--input">
+						<label for="" class="error"></label>
+					</div>
+					<div class="group__submit">
+						<button type="submit" class="regular-btn transition">Rename</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="error__status">
+		<p>Job position already exists there</p>
+	</div>
+	<div class="copy__status">
+		<p>Link Copied</p>
+	</div>
+	<script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  crossorigin="anonymous"></script>
+  <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>
+
+    <script>
+      
+    </script>
+	<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
+{% endblock %}
